@@ -2,10 +2,11 @@ package bytebankHerdado;
 
 public class Administrador extends Funcionario implements Autenticavel{
 
-	private int senha;
+	private AutenticacaoUtil autenticador;
+	
 	public Administrador(String nome, String cpf) {
 		super(nome, cpf);
-		// TODO Auto-generated constructor stub
+		this.autenticador = new AutenticacaoUtil();
 	}
 	
 
@@ -16,12 +17,12 @@ public class Administrador extends Funcionario implements Autenticavel{
 
 	@Override
 	public boolean autentica(int senha) {
-		return this.senha == senha;
+		return autenticador.autentica(senha);
 	}
 
 	@Override
 	public void setSenha(int senha) {
-		this.senha = senha;
+		this.autenticador.setSenha(senha);
 		
 	}
 }
